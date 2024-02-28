@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RIPcs.View.PhonewordTranslatorView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:RIPcs.ViewModel"
+    Title="PhonewordTranslatorView"
+    x:DataType="vm:PhonewordTranslatorViewModel">
+    <VerticalStackLayout MaximumWidthRequest="350">
+        <Label
+            Margin="0,10,0,0"
+            FontSize="20"
+            Text="Enter a Phoneword" />
+        <Entry x:Name="PhoneNumberText" Text="{Binding EnteredNumber}" />
+        <Button
+            x:Name="TranslateButton"
+            Margin="10"
+            Command="{Binding TranslateNumberCommand}"
+            Text="Translate" />
+
+        <Button
+            x:Name="call"
+            Margin="10"
+            Command="{Binding CallCommand}"
+            Text="{Binding TranslatedNumber, StringFormat='call + {0}'}" />
+    </VerticalStackLayout>
+</ContentPage>
